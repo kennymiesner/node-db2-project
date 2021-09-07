@@ -1,5 +1,11 @@
 const express = require('express')
 const Car = require('./cars-model')
+const {
+  checkCarId,
+  checkCarPayload,
+  checkVinNumberValid,
+  checkVinNumberUnique,
+} = require('./cars-middleware')
 
 const router = express.Router()
 
@@ -11,5 +17,11 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/:id', checkCarId, async (req, res) => {
+  res.json(req.car)
+})
+
+router 
 
 module.exports = router
