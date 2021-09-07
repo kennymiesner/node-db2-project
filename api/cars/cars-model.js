@@ -11,3 +11,9 @@ const getById = (id) => {
 const create = (car) => {
   return db('cars').insert(car)
 }
+
+module.exports =  {
+  getAll,
+  getById,
+  create,
+}
